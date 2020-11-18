@@ -34,6 +34,10 @@ public class Factura {
 		this.numCompraClase = numCompraClase;
 	}
 	
+	public Factura(int precio, int numCompraClase){
+		this.precio=precio;
+		this.numCompraClase= numCompraClase;
+	}
 	/**
 	 * Este método obtiene el nombre de la clase
 	 * 

@@ -1,6 +1,6 @@
 package logneg;
 /**
- * 
+ * Esta es la clase administrador que es "clase hija" de TrabajadorGym
  * @author Nora y Víctor
  * 
  */
@@ -14,14 +14,12 @@ public class Administrador extends TrabajadorGym{
 	}
 	/**
 	 * Atributos del administrador
-	 * @param dni
-	 * 			del Administrador
-	 * @param email
-	 * 			del Administrador
-	 * @param nombreAdmin
-	 * 			del Administrador
+	 * 
+	 * @param dni		
+	 * @param email			
+	 * @param nombreAdmin		
 	 * @param contrasenya
-	 * 			del Administrador
+	 * 			
 	 */
 	
 	public Administrador(String dni, String email, String nombreAdmin, String contrasenya) {
