@@ -17,7 +17,7 @@ import logneg.UsuarioGym;
 
 public class UsuarioGymBD {
 	/**
-	 * 
+	 * Este método crea la tabla de usuarios del gym
 	 * @param con
 	 */
 	public static void crearTablaUsuario(Connection con){
@@ -36,7 +36,7 @@ public class UsuarioGymBD {
 		}
 	}
 	/**
-	 * 
+	 * Este método mete usuarios en la tabla de usuarioGym
 	 * @param con
 	 * @param dniUsuario
 	 * @param nombreUsuario
@@ -62,7 +62,7 @@ public class UsuarioGymBD {
 		}
 	}
 	/**
-	 * 
+	 * Este método selecciona los usuarios y nos devuelve una lista 
 	 * @param con
 	 * @return
 	 */
@@ -89,7 +89,7 @@ public class UsuarioGymBD {
 		
 	}
 	/**
-	 * 
+	 * Este método elimina usuarios de la tabla usuarioGym
 	 * @param con
 	 * @param dniUsuario
 	 */

@@ -1,7 +1,7 @@
 package logneg;
 
 /**
- * 
+ * Esta es la clase  ClaseGym
  * @author Nora y Víctor
  *
  */

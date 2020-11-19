@@ -1,9 +1,10 @@
 package bbdd;
 
-import java.io.File;
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Esta es la clase GestorBD que sirve para preparar la bbdd en nuestra app Fitness Centre.
@@ -12,62 +13,101 @@ import java.sql.SQLException;
  *
  */
 public class GestorBD {
-	private String nombreBase;
-	private Connection con;
 	
+	private Connection con;
+	private final String localizador="jdbc:sqlite:";
+	private String nombreBase;
+	
+	
+	public Connection getCon() {
+		return con;
+	}
+
+	public void setCon(Connection con) {
+		this.con = con;
+	}
+	
+	public GestorBD(String nombreBase){
+		this.nombreBase=this.localizador + nombreBase;
+		
+	}
 	/**
 	 * Este método inicializa la base de datos, una vez haya sido creada la conexión
 	 */
-	public void iniciarBase(){
-		AdminBD.crearTablaAdmin(con);
-		
-		try {
-			AdminBD.insertarAdmin(con, "11111111A", "nora@gmail.com", "nora", "nora1");
+	
+	public void inicioBD(){
+		try{
+			AdminBD.crearTablaAdmin(this.con);
+			UsuarioGymBD.crearTablaUsuario(this.con);
+			FacturaBD.crearTablaFactura(this.con);
 			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			AdminBD.insertarAdmin(this.con, "72601036H", "vmtzmtz@gmail.com", "victormtzliz", "programaprobado123");
+			AdminBD.insertarAdmin(this.con, "72601036H", "vmtzmtz@gmail.com", "victormtzliz", "programaprobado123");
+			AdminBD.insertarAdmin(this.con, "72601036H", "vmtzmtz@gmail.com", "victormtzliz", "programaprobado123");
+			AdminBD.insertarAdmin(this.con, "72601036H", "vmtzmtz@gmail.com", "victormtzliz", "programaprobado123");
+			AdminBD.insertarAdmin(this.con, "72601036H", "vmtzmtz@gmail.com", "victormtzliz", "programaprobado123");
+			
+			ArrayList<String> clases=new ArrayList<String>();
+			clases.add("zumba");
+			clases.add("Spinning");
+			ArrayList<String> clases2=new ArrayList<String>();
+			clases2.add("pilates");
+			clases2.add("spinning");
+			UsuarioGymBD.insertarUsuarioGym(this.con, "72601035H", "Pitxford Ordorika", clases);
+			UsuarioGymBD.insertarUsuarioGym(this.con, "72601034H", "Norix Royus", clases2);
+			
+			ArrayList<String> clases3=new ArrayList<String>();
+			clases3.add("zumba");
+			clases3.add("spinning");
+			ArrayList<String> clases4=new ArrayList<String>();
+			clases4.add("pilates");
+			clases4.add("spinning");
+			FacturaBD.facturitaUsuario(this.con, 1, "11-11-2011", 34, clases3);
+			FacturaBD.facturitaUsuario(this.con, 2, "11-11-2011", 36, clases4);
+			
+			this.desconectarBD();
+			
+		} catch(SQLException e){
+			System.out.println("Errores.");
 		}
-		
 	}
 	/**
-	 * Este método hace la conexión con la bbdd.
-	 * @param nombreBD
-	 */
-	public void conexionBD(String nombreBase){
-		this.nombreBase = nombreBase; 
-		boolean bdHay= false;
-		File bd = new File(this.nombreBase+".db");
-
-		if(bd.exists() && !bd.isDirectory()) { 
-			bdHay = true;
-		}
-		try 
-		{
-			con = DriverManager.getConnection("jdbc:sqlite:"+nombreBase+".db");
-		} 
-		catch (SQLException e) 
-		{
-        	e.printStackTrace();
-		}
-    
-		if(!bdHay)
-		{
-			iniciarBase();
-		}
-		
-	}
-	/** 
-	 * Este método cierra la conexión con la BBDD.
+	 * Este método hace la conexión a la bbdd
 	 * 
 	 */
-	public void desconexionBD(){
-		try {
-			this.con.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Error al desconectar la BBDD");
-			e.printStackTrace();
+	public void conectarBD(){
+		try{
+			this.con=DriverManager.getConnection(this.nombreBase);
+		}catch (SQLException e) {
+			System.out.println("Error al conectar. " + e.getMessage());
 		}
 	}
+	public static void nuevaBD(String archivo){
+		String url="jdbc:sqlite:" + archivo;
+		try (Connection con = DriverManager.getConnection(url)) {
+			if (con != null) {
+				DatabaseMetaData metaData = con.getMetaData();
+				System.out.println("El driver name es " + metaData.getDriverName());
+				System.out.println("Se ha creado la base de datos");
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	/**
+	 * Este método cierra la conexión con la bbdd
+	 * 
+	 */
+	public void desconectarBD(){
+		try {
+			if (this.con != null) {
+
+				this.con.close();
+			}
+		} catch (SQLException ex) {
+			System.out.println("No se ha podido desconectar");
+		}
+
+	}
+
 }
