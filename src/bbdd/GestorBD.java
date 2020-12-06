@@ -109,5 +109,23 @@ public class GestorBD {
 		}
 
 	}
+	
+	public void crearBase(String nombreArchivo){
+		String loc = "jdbc:sqlite:" + nombreArchivo;
+		
+		try (Connection con= DriverManager.getConnection(loc)){
+			if(con != null){
+				DatabaseMetaData m = con.getMetaData(); //base de datos creada
+				System.out.println("Nueva base de datos creada con nombre: " + m.getDriverName());
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());;
+		}
+		
+
+	}
 
 }
