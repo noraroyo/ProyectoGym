@@ -80,7 +80,7 @@ public class PantallaPrincipal extends JFrame {
 		JButton btnAdministrador = new JButton("Administrador");
 		btnAdministrador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				LoginAdmin login = new LoginAdmin();
+				LoginAdmin login = new LoginAdmin(usuario, fac, admin, null);
 				login.setVisible(true);
 				PantallaPrincipal.this.setVisible(false);
 			}
