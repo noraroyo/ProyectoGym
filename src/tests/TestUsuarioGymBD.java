@@ -50,13 +50,41 @@ public class TestUsuarioGymBD {
 	@Test
 	public void testSeleccionarUsuarioGym() {	
 		UsuarioGymBD.crearTablaUsuario(gestorBD.getCon());
+		ArrayList<String> clase = new ArrayList<>();
+		clase.add("Zumba");
+		clase.add("Yoga");
+		clase.add("Pilates");
 		
+		UsuarioGymBD.insertarUsuarioGym(gestorBD.getCon(), "111111111A", "Nora", clase);
+		ArrayList<UsuarioGym> r =UsuarioGymBD.todosLosUsuarios(gestorBD.getCon());
+		
+		for(UsuarioGym usuario : r){
+			if(usuario.getDni().equals("111111111A")){
+				assertEquals(usuario.getNombre(), "Nora");
+				
+				ArrayList<String>claser =usuario.getNombreClase();
+				assertEquals(claser.get(0), "Zumba");
+				assertEquals(claser.get(1), "Yoga");
+				assertEquals(claser.get(2), "Pilates");		
+		}
+		}
+		UsuarioGymBD.insertarUsuarioGym(gestorBD.getCon(), "111111111A", null, clase);
+		ArrayList<UsuarioGym> re =UsuarioGymBD.todosLosUsuarios(gestorBD.getCon());
+		
+		
+		for (UsuarioGym usuario : r){
+			if(usuario.getDni().equals("111111111A")){
+				assertNull(usuario.getNombre());
+				
+				ArrayList<String>claser =usuario.getNombreClase();
+				assertNotEquals(claser.get(0), "Zumba");
+				assertNotEquals(claser.get(1), "Yoga");
+				assertNotEquals(claser.get(2), "Pilates");	
+			}
+			
+		}
 	
 	}
-	
-	
-	
-	
 	
 	@Test
 	public void testInsertarUsuarioGym() {	
@@ -78,10 +106,10 @@ public class TestUsuarioGymBD {
 				assertEquals(claser.get(1), "Yoga");
 				assertEquals(claser.get(2), "Pilates");				
 			}
-			
+		}
 		UsuarioGymBD.insertarUsuarioGym(gestorBD.getCon(), "111111111A", null, clase);
 		ArrayList<UsuarioGym> re =UsuarioGymBD.todosLosUsuarios(gestorBD.getCon());
-		}
+		
 		
 		for (UsuarioGym usuario : r){
 			if(usuario.getDni().equals("111111111A")){
@@ -94,8 +122,7 @@ public class TestUsuarioGymBD {
 			}
 			
 		}
-	
-	
+
 	}
 	@Test
 	public void testBorrarUsuarioGym() {	
@@ -114,6 +141,5 @@ public class TestUsuarioGymBD {
 		}
 	
 	}
-	
 
 }
