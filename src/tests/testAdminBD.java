@@ -20,7 +20,7 @@ import logneg.Administrador;
  * @author Victor
  *
  */
-public class testAdminBD {
+public class TestAdminBD {
 	GestorBD gestor;
 	
 	/**

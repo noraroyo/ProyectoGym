@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import bbdd.GestorBD;
 
-public class testGestorBD {
+public class TestGestorBD {
 
 GestorBD gestorBD;
 

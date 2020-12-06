@@ -14,7 +14,7 @@ import logneg.Factura;
  * @author Víctor
  * 
  */
-public class testFactura {
+public class TestFactura {
 	
 	Factura fact1;
 	Factura fact2;
