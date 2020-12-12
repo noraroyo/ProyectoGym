@@ -31,7 +31,6 @@ public class PantallaPrincipal extends JFrame {
 	private ArrayList <UsuarioGym> usuario;
 	private ArrayList <Administrador> admin;
 	private ArrayList <Factura> fac;
-	private ArrayList <Recepcionista> recep;
 
 	/**
 	 * Launch the application.
