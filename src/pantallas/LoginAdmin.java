@@ -91,7 +91,9 @@ public class LoginAdmin extends JFrame {
 				try{
 					boolean found=checkLogin(user,pass);
 					if (found){
-						
+						PantallaAdmin pantallaAdmin=new PantallaAdmin(user,pass,usuarioBD,adminBD,facturasBD,padre);
+						pantallaAdmin.setVisible(true);
+						LoginAdmin.this.dispose();
 					}
 			}catch(AdminNotFound e1){
 				JOptionPane.showMessageDialog(LoginAdmin.this, e1.getMessage());
