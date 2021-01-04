@@ -40,7 +40,7 @@ public class PantallaUsuarioFCentre extends JFrame {
 		this.usuariosBD=usuarios;
 		getContentPane().setLayout(null);
 		
-		JLabel lblCursosFitness = new JLabel("CURSOS - FITNESS CENTRE");
+		JLabel lblCursosFitness = new JLabel("CLASES - FITNESS CENTRE");
 		lblCursosFitness.setFont(new Font("Century Gothic", Font.BOLD, 18));
 		lblCursosFitness.setBounds(29, 16, 272, 20);
 		getContentPane().add(lblCursosFitness);
@@ -106,11 +106,11 @@ public class PantallaUsuarioFCentre extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				String precioZ= label.getText();
-				int precioNumeroZ= Integer.parseInt(precioZ);
-				String tipoZ = (String) comboBox1.getSelectedItem();
-				ClaseGym compraClasesZ = new ClaseGym("Zumba", precioNumeroZ, tipoZ);
-				clases.add(compraClasesZ);
+				String precio= label.getText();
+				int precioNumero= Integer.parseInt(precio);
+				String tipo = (String) comboBox1.getSelectedItem();
+				ClaseGym compraClases = new ClaseGym("Zumba", precioNumero, tipo);
+				clases.add(compraClases);
 			}
 		});
 			
@@ -141,11 +141,11 @@ public class PantallaUsuarioFCentre extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				String precioS= label.getText();
-				int precioNumeroS= Integer.parseInt(precioS);
-				String tipoS = (String) comboBox1.getSelectedItem();
-				ClaseGym compraClasesS = new ClaseGym("Spinning", precioNumeroS, tipoS);
-				clases.add(compraClasesS);
+				String precio= label.getText();
+				int precioNumero= Integer.parseInt(precio);
+				String tipo = (String) comboBox1.getSelectedItem();
+				ClaseGym compraClases = new ClaseGym("Spinning", precioNumero, tipo);
+				clases.add(compraClases);
 			}
 		});
 			
@@ -167,6 +167,8 @@ public class PantallaUsuarioFCentre extends JFrame {
 						
 					}
 					
+					PantallaFacturaClases p = new PantallaFacturaClases(precioTotalClases, clases, usuariosBD);
+					p.setVisible(true);
 				}
 				
 			}
