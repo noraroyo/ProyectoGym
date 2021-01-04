@@ -43,9 +43,10 @@ public class LoginAdmin extends JFrame {
 
 
 	/**
-	 * Crear el Frame LoginAdmin, es donde los administradores introducen usuario y contraseña.
-	 * Se les abre su menu.
+	 * Crear el Frame LoginAdmin: los administradores introducen usuario y contraseña.
+	 * Se les abre su menu correspondiente
 	 */
+	
 	public LoginAdmin(ArrayList<UsuarioGym> usuario, ArrayList<Factura> fac,ArrayList<Administrador> admin, PantallaPrincipal padre) {
 		this.usuarioBD=usuario;
 		this.facturasBD=fac;
@@ -127,32 +128,29 @@ public class LoginAdmin extends JFrame {
 	 * 
 	 */
 	public boolean checkLogin(String usuario, String contrasenya) throws AdminNotFound {
-
 		boolean check = false;
-
 		for (Administrador ad : adminBD) {
-
 			if (ad.getNombre().equals(usuario)) {
 				check = true;
 				break;
-
-			} else {
+			} else 
+			
+			{
 				if (ad.getContrasenya().equals(contrasenya)) {
-
 					check = true;
 					break;
 				}
 
 			}
 		}
-
 		if (check == true) {
 
 			return true;
 
-		} else {
+		} else 
+		{
 
-			throw new AdminNotFound("No existe el usuario o la contrasenya");
+			throw new AdminNotFound("Lo sentimos: No existe usuario o contraseña. Inténtelo de nuevo.");
 
 		}
 
