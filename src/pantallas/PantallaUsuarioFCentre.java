@@ -34,10 +34,16 @@ public class PantallaUsuarioFCentre extends JFrame {
 	ArrayList<UsuarioGym> usuariosBD=new ArrayList<UsuarioGym>();
 	private PantallaPrincipal father;
 	
+	/**
+	 * Crea el frame de la pantalla usuario, donde el usuario podrá inscribirse a las clases que el Finess Centre proporciona
+	 * @param usuarios
+	 * @param padre
+	 */
 	public PantallaUsuarioFCentre(ArrayList<UsuarioGym> usuarios, PantallaPrincipal padre){
-		getContentPane().setBackground(new Color(240, 248, 255));
 		father=padre;
 		this.usuariosBD=usuarios;
+		getContentPane().setBackground(new Color(240, 248, 255));
+		
 		getContentPane().setLayout(null);
 		
 		JLabel lblCursosFitness = new JLabel("CLASES - FITNESS CENTRE");
