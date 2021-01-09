@@ -59,16 +59,30 @@ public class TestUsuarioGymBD {
 		UsuarioGymBD.insertarUsuarioGym(gestorBD.getCon(), "111111111A", "Nora", clase);
 		ArrayList<UsuarioGym> r =UsuarioGymBD.todosLosUsuarios(gestorBD.getCon());
 		
-		for(UsuarioGym usuario : r){
-			if(usuario.getDni().equals("111111111A")){
-				assertEquals(usuario.getNombre(), "Nora");
+		// SUSTITUIR EL FOR POR UNA EXPRESIÓN LAMBDA
+		r.forEach (e -> {
+			if(e.getDni().equals("111111111A")){
+				assertEquals(e.getNombre(), "Nora");
 				
-				ArrayList<String>claser =usuario.getNombreClase();
+				ArrayList<String>claser =e.getNombreClase();
 				assertEquals(claser.get(0), "Zumba");
 				assertEquals(claser.get(1), "Yoga");
 				assertEquals(claser.get(2), "Pilates");				
 			}
 		}
+		);
+		
+//FOR EACH CONVENCIONAL		
+//		for(UsuarioGym usuario : r){
+//			if(usuario.getDni().equals("111111111A")){
+//				assertEquals(usuario.getNombre(), "Nora");
+//				
+//				ArrayList<String>claser =usuario.getNombreClase();
+//				assertEquals(claser.get(0), "Zumba");
+//				assertEquals(claser.get(1), "Yoga");
+//				assertEquals(claser.get(2), "Pilates");				
+//			}
+//		}
 		UsuarioGymBD.insertarUsuarioGym(gestorBD.getCon(), "111111111A", null, clase);
 		ArrayList<UsuarioGym> re =UsuarioGymBD.todosLosUsuarios(gestorBD.getCon());
 		
@@ -97,6 +111,9 @@ public class TestUsuarioGymBD {
 		
 		UsuarioGymBD.insertarUsuarioGym(gestorBD.getCon(), "111111111A", "Nora", clase);
 		ArrayList<UsuarioGym> r =UsuarioGymBD.todosLosUsuarios(gestorBD.getCon());
+		
+		
+		
 		
 		for(UsuarioGym usuario : r){
 			if(usuario.getDni().equals("111111111A")){
