@@ -89,6 +89,7 @@ public class PantallaPrincipal extends JFrame {
 			PantallaPrincipal.this.setVisible(false);
 		});
 		
+//	Clase interna anónima, se puede simplificar código mediante una expresión Lambda
 //		btnAdministrador.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //				LoginAdmin login = new LoginAdmin(usuario, fac, admin, PantallaPrincipal.this);
@@ -96,19 +97,31 @@ public class PantallaPrincipal extends JFrame {
 //				PantallaPrincipal.this.setVisible(false);
 //			}
 //		});
+		
 		btnAdministrador.setBorder(new LineBorder(new Color(176, 196, 222), 3));
 		btnAdministrador.setFont(new Font("Century Gothic", Font.BOLD, 16));
 		btnAdministrador.setBounds(48, 94, 162, 29);
 		contentPane.add(btnAdministrador);
 		
+		/**
+		 * Uso de Expresiones Lambda en el botón de "usuario"
+		 */
 		JButton button = new JButton("Usuario");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				PantallaUsuarioFCentre pantallaUsuario= new PantallaUsuarioFCentre(usuario,PantallaPrincipal.this);
-				pantallaUsuario.setVisible(true);
-				PantallaPrincipal.this.setVisible(false);
-			}
+		button.addActionListener( e -> {
+			PantallaUsuarioFCentre pantallaUsuario= new PantallaUsuarioFCentre(usuario,PantallaPrincipal.this);
+			pantallaUsuario.setVisible(true);
+			PantallaPrincipal.this.setVisible(false);
+			
 		});
+		
+//Clase interna anónima, se puede simplificar código mediante una expresión Lambda
+//		button.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				PantallaUsuarioFCentre pantallaUsuario= new PantallaUsuarioFCentre(usuario,PantallaPrincipal.this);
+//				pantallaUsuario.setVisible(true);
+//				PantallaPrincipal.this.setVisible(false);
+//			}
+//		});
 		button.setBorder(new LineBorder(new Color(176, 196, 222), 3));
 		button.setFont(new Font("Century Gothic", Font.BOLD, 16));
 		button.setBounds(234, 95, 162, 29);
