@@ -79,14 +79,23 @@ public class PantallaPrincipal extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		/**
+		 * Uso de Expresiones Lambda en btnAdministrador
+		 */
 		JButton btnAdministrador = new JButton("Administrador");
-		btnAdministrador.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				LoginAdmin login = new LoginAdmin(usuario, fac, admin, PantallaPrincipal.this);
-				login.setVisible(true);
-				PantallaPrincipal.this.setVisible(false);
-			}
+		btnAdministrador.addActionListener (e -> {
+			LoginAdmin login = new LoginAdmin(usuario, fac, admin, PantallaPrincipal.this);
+			login.setVisible(true);
+			PantallaPrincipal.this.setVisible(false);
 		});
+		
+//		btnAdministrador.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				LoginAdmin login = new LoginAdmin(usuario, fac, admin, PantallaPrincipal.this);
+//				login.setVisible(true);
+//				PantallaPrincipal.this.setVisible(false);
+//			}
+//		});
 		btnAdministrador.setBorder(new LineBorder(new Color(176, 196, 222), 3));
 		btnAdministrador.setFont(new Font("Century Gothic", Font.BOLD, 16));
 		btnAdministrador.setBounds(48, 94, 162, 29);
