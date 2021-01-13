@@ -1,5 +1,6 @@
 package pantallas;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -60,11 +61,13 @@ public class PantallaAdmin extends JFrame{
 	
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setFont(new Font("Century Gothic", Font.BOLD, 16));
 		comboBox.setModel(new DefaultComboBoxModel(new String []{"Añadir un Curso", "Modificar un curso", "Curso más solicitado","Email enviar"}) );
 		comboBox.setBounds(99, 62, 223, 26);
 		contentPane.add(comboBox);
 		
 		JLabel lblBienvenido = new JLabel("BIENVENIDO");
+		lblBienvenido.setFont(new Font("Century Gothic", Font.BOLD, 16));
 		lblBienvenido.setBounds(99, 34, 223, 20);
 		contentPane.add(lblBienvenido);
 		
@@ -73,6 +76,7 @@ public class PantallaAdmin extends JFrame{
 		contentPane.add(list);
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.setFont(new Font("Century Gothic", Font.BOLD, 16));
 		btnAceptar.addActionListener(new ActionListener() {
 			
 			@Override
@@ -81,7 +85,7 @@ public class PantallaAdmin extends JFrame{
 				String aukera = (String) comboBox.getSelectedItem();
 				if (aukera.equals("Añadir un Curso")) {
 					int auk1=1;
-					NuevoCurso nc= new NuevoCurso (PantallaAdmin.this, auk1);
+					NuevoCurso nc= new NuevoCurso(PantallaAdmin.this, auk1);
 					nc.setVisible(true);
 					
 					
