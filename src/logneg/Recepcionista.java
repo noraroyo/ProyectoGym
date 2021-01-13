@@ -7,6 +7,7 @@ package logneg;
  */
 public class Recepcionista extends TrabajadorGym{
 	private int numCompraClase;
+	private int sueldo;
 	
 	public Recepcionista(){
 		
@@ -16,9 +17,16 @@ public class Recepcionista extends TrabajadorGym{
 	 * 
 	 * @param numCompraClase
 	 */
-	public Recepcionista(String dniTrabajador, String emailTrabajador ,int numCompraClase) {
+	public Recepcionista(String dniTrabajador, String emailTrabajador ,int numCompraClase, int sueldo) {
 		super(dniTrabajador, emailTrabajador);
 		this.numCompraClase = numCompraClase;
+		this.sueldo=sueldo;
+	}
+	public int getSueldo() {
+		return sueldo;
+	}
+	public void setSueldo(int sueldo) {
+		this.sueldo = sueldo;
 	}
 	/**
 	 * Este método obtiene el número de facturas (compra de una clase del gym)
