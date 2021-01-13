@@ -24,7 +24,8 @@ public class UsuarioGymBD {
 		String sql = "CREATE TABLE IF NOT EXISTS USUARIOGYM (\n" 
 				+ "    dniUsuario text PRIMARY KEY,\n"
 				+ "    nombreUsuario text NOT NULL,\n" 
-				+ "    nombreClase text NOT NULL,\n" 
+				+ "    nombreClase text NOT NULL,\n"
+				+ "	   cantidadDeVezSolicitado text NOT NULL\n" 
 				+ ");";
 		try (Statement s=con.createStatement()){
 			
@@ -42,9 +43,11 @@ public class UsuarioGymBD {
 	 * @param nombreUsuario
 	 * @param nombreClase
 	 */
-	public static void insertarUsuarioGym(Connection con, String dniUsuario, String nombreUsuario, ArrayList<String> nombreClase){
+	public static void insertarUsuarioGym(Connection con, String dniUsuario, String nombreUsuario, ArrayList<String> nombreClase,
+			ArrayList <Integer>cantidadDeVezSolicitado){
 		String sql= "INSERT INTO USUARIOGYM(dniUsuario,nombreUsuario,nombreClase) VALUES(?,?,?)";
 		String clases=null;
+		String counter= null;
 		
 		try(PreparedStatement ps=con.prepareStatement(sql)){
 			for(int i=0;i<nombreClase.size();i++){
@@ -53,13 +56,25 @@ public class UsuarioGymBD {
 				}
 				clases+=nombreClase.get(i)+",";
 			}
+			for (int i = 0; i < cantidadDeVezSolicitado.size(); i++) {
+
+				if (i == cantidadDeVezSolicitado.get(i) - 1) {
+					counter += cantidadDeVezSolicitado.get(i);
+				}
+
+				counter += cantidadDeVezSolicitado.get(i) + ",";
+
+			}
 			ps.setString(1, dniUsuario);
 			ps.setString(2, nombreUsuario);
 			ps.setNString(2, clases);
+			ps.setString(4, counter);
+			ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 	/**
 	 * Este método selecciona los usuarios y nos devuelve una lista 
@@ -67,7 +82,7 @@ public class UsuarioGymBD {
 	 * @return
 	 */
 	public static ArrayList<UsuarioGym> todosLosUsuarios(Connection con){
-		String sql = "SELECT dniUsuario, nombreusuario, nombreClase FROM USUARIOGYM";
+		String sql = "SELECT dniUsuario, nombreusuario, nombreClase, cantidadDeVezSolicitado FROM USUARIOGYM";
 		ArrayList<UsuarioGym> listaUsuarios=new ArrayList<UsuarioGym>();
 		try(Statement s= con.createStatement(); ResultSet rset=s.executeQuery(sql)){
 			while (rset.next()){
@@ -76,12 +91,21 @@ public class UsuarioGymBD {
 				String[] clases=rset.getString("nombreClase").split(",");
 				ArrayList<String> listaClases=new ArrayList<String>(Arrays.asList(clases));
 				
-				UsuarioGym usuario=new UsuarioGym(nombreUsuario,dniUsuario,listaClases);
+				String[] veces = rset.getString("cantidadDeVezSolicitado").split(",");
+				ArrayList<Integer> listaVecesSoli = new ArrayList<Integer>();
+
+				for (int i = 0; i < veces.length; i++) {
+					String obtained = veces[i];
+					int when = Integer.parseInt(obtained);
+					listaVecesSoli.add(when);
+				
+				UsuarioGym usuario=new UsuarioGym(nombreUsuario,dniUsuario,listaClases, listaVecesSoli);
 				listaUsuarios.add(usuario);
 			}
+			}
+		}
 			
-			
-		} catch (SQLException e) {
+		 catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
