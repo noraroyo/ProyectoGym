@@ -77,7 +77,7 @@ public class LoginAdmin extends JFrame {
 		lblUsuario.setFont(new Font("Century Gothic", Font.BOLD, 16));
 		contentPane.add(lblUsuario);
 		
-		JLabel lblContrasea = new JLabel("Contrasenya ");
+		JLabel lblContrasea = new JLabel("Contraseña ");
 		
 		lblContrasea.setBounds(62, 132, 146, 20);
 		lblContrasea.setFont(new Font("Century Gothic", Font.BOLD, 16));
