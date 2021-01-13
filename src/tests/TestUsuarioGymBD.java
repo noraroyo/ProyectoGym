@@ -55,8 +55,10 @@ public class TestUsuarioGymBD {
 		clase.add("Zumba");
 		clase.add("Yoga");
 		clase.add("Pilates");
-		
-		UsuarioGymBD.insertarUsuarioGym(gestorBD.getCon(), "111111111A", "Nora", clase);
+		ArrayList<Integer>v  = new ArrayList<>();
+		v.add(2);
+		v.add(1);
+		UsuarioGymBD.insertarUsuarioGym(gestorBD.getCon(), "111111111A", "Nora", clase, v);
 		ArrayList<UsuarioGym> r =UsuarioGymBD.todosLosUsuarios(gestorBD.getCon());
 		
 		// SUSTITUIR EL FOR POR UNA EXPRESIÓN LAMBDA
@@ -65,9 +67,16 @@ public class TestUsuarioGymBD {
 				assertEquals(e.getNombre(), "Nora");
 				
 				ArrayList<String>claser =e.getNombreClase();
+				ArrayList<Integer> vez = e.getCantidadDeVecesSolicitado()
+						;
 				assertEquals(claser.get(0), "Zumba");
 				assertEquals(claser.get(1), "Yoga");
-				assertEquals(claser.get(2), "Pilates");				
+				assertEquals(claser.get(2), "Pilates");		
+				
+				int v1 = vez.get(0);
+				int v2 = vez.get(1);
+				assertEquals(v1, 2);
+				assertEquals(v2, 1);
 			}
 		}
 		);
@@ -83,7 +92,7 @@ public class TestUsuarioGymBD {
 //				assertEquals(claser.get(2), "Pilates");				
 //			}
 //		}
-		UsuarioGymBD.insertarUsuarioGym(gestorBD.getCon(), "111111111A", null, clase);
+		UsuarioGymBD.insertarUsuarioGym(gestorBD.getCon(), "111111111A", null, clase,v);
 		ArrayList<UsuarioGym> re =UsuarioGymBD.todosLosUsuarios(gestorBD.getCon());
 		
 		
@@ -91,10 +100,17 @@ public class TestUsuarioGymBD {
 			if(usuario.getDni().equals("111111111A")){
 				assertNull(usuario.getNombre());
 				
+				ArrayList<Integer> cantidadDeVezSolicitado= usuario.getCantidadDeVecesSolicitado();
 				ArrayList<String>claser =usuario.getNombreClase();
 				assertNotEquals(claser.get(0), "Zumba");
 				assertNotEquals(claser.get(1), "Yoga");
 				assertNotEquals(claser.get(2), "Pilates");	
+				
+				int v1=cantidadDeVezSolicitado.get(0);
+				int v2=cantidadDeVezSolicitado.get(1);
+
+				assertNotEquals(v1, 0);
+				assertNotEquals(v2, 2);
 			}
 			
 		}
@@ -108,8 +124,11 @@ public class TestUsuarioGymBD {
 		clase.add("Zumba");
 		clase.add("Yoga");
 		clase.add("Pilates");
+		ArrayList<Integer> vez = new ArrayList<>();
+		vez.add(2);
+		vez.add(1);
 		
-		UsuarioGymBD.insertarUsuarioGym(gestorBD.getCon(), "111111111A", "Nora", clase);
+		UsuarioGymBD.insertarUsuarioGym(gestorBD.getCon(), "111111111A", "Nora", clase,vez);
 		ArrayList<UsuarioGym> r =UsuarioGymBD.todosLosUsuarios(gestorBD.getCon());
 		
 		//SUSTITUIR EL FOR POR UNA EXPRESIÓN LAMBDA
@@ -117,10 +136,19 @@ public class TestUsuarioGymBD {
 			if(e.getDni().equals("111111111A")){
 				assertEquals(e.getNombre(), "Nora");
 				
+				ArrayList<Integer>  cantidadDeVezSolicitado= e.getCantidadDeVecesSolicitado();
+				
 				ArrayList<String>claser =e.getNombreClase();
 				assertEquals(claser.get(0), "Zumba");
 				assertEquals(claser.get(1), "Yoga");
-				assertEquals(claser.get(2), "Pilates");		
+				assertEquals(claser.get(2), "Pilates");	
+				
+				int v1=cantidadDeVezSolicitado.get(0);
+				int v2=cantidadDeVezSolicitado.get(1);
+
+				assertEquals(v1, 2);
+				assertEquals(v2, 1);
+				
 		}
 		}
 		);
@@ -136,18 +164,26 @@ public class TestUsuarioGymBD {
 //				assertEquals(claser.get(2), "Pilates");		
 //		}
 //		}
-		UsuarioGymBD.insertarUsuarioGym(gestorBD.getCon(), "111111111A", null, clase);
+		UsuarioGymBD.insertarUsuarioGym(gestorBD.getCon(), "111111111A", null, clase, vez);
 		ArrayList<UsuarioGym> re =UsuarioGymBD.todosLosUsuarios(gestorBD.getCon());
 		
 		
 		for (UsuarioGym usuario : r){
 			if(usuario.getDni().equals("111111111A")){
 				assertNull(usuario.getNombre());
+				ArrayList<Integer>  cantidadDeVezSolicitado= usuario.getCantidadDeVecesSolicitado();
 				
 				ArrayList<String>claser =usuario.getNombreClase();
 				assertNotEquals(claser.get(0), "Zumba");
 				assertNotEquals(claser.get(1), "Yoga");
 				assertNotEquals(claser.get(2), "Pilates");	
+				int v1=cantidadDeVezSolicitado.get(0);
+				int v2=cantidadDeVezSolicitado.get(1);
+
+				assertNotEquals(v1, 0);
+				assertNotEquals(v2, 2);
+
+				
 			}
 			
 		}
@@ -162,8 +198,11 @@ public class TestUsuarioGymBD {
 		clase.add("Zumba");
 		clase.add("Yoga");
 		clase.add("Pilates");
+		ArrayList<Integer> v = new ArrayList<>();
+		v.add(2);
+		v.add(2);
 		
-		UsuarioGymBD.insertarUsuarioGym(gestorBD.getCon(), "111111111A", "Nora", clase);
+		UsuarioGymBD.insertarUsuarioGym(gestorBD.getCon(), "111111111A", "Nora", clase, v);
 		UsuarioGymBD.eliminar(gestorBD.getCon(), "111111111A");
 		ArrayList<UsuarioGym> r =UsuarioGymBD.todosLosUsuarios(gestorBD.getCon());
 		
