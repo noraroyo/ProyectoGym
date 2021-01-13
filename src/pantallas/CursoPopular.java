@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
-
+import logneg.UsuarioGym;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -93,6 +93,26 @@ public class CursoPopular extends JFrame {
 		
 		cursos.add("Pilates");
 		cursos.add("Zumba");
+		cursos.add("Spinning");
+		
+		LinkedList<Integer> zenbat = new LinkedList<Integer>();
+		int contadorPilates = 0;
+		int contadorZumba = 0;
+		int contadorSpinning =0;
+		
+		for (UsuarioGym u : listaUsuarios) {
+			for (int i=0; i<u.getNombreClase().size(); i++){
+				if (u.getNombreClase().get(i).equals("Pilates")){
+					contadorPilates = contadorPilates + u.getCantidadDeVecesSolicitado().get(i);
+					
+				}
+			}
+		}
+		
+		
+		
+		
+		
 	}
 	
 	
