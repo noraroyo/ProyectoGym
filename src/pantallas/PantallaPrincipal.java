@@ -142,6 +142,11 @@ public class PantallaPrincipal extends JFrame {
 		lblFitnessCentre.setFont(new Font("Tahoma", Font.BOLD, 29));
 		lblFitnessCentre.setBounds(112, 16, 216, 49);
 		contentPane.add(lblFitnessCentre);
-
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(
+				"C:\\NORA\\reumd-fitness-center-8397-hor-feat.jpg"));
+		lblNewLabel.setBounds(-140, -180, 1000, 700);
+		contentPane.add(lblNewLabel);
 	}
 }
