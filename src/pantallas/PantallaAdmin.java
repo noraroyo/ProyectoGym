@@ -63,7 +63,7 @@ public class PantallaAdmin extends JFrame{
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setFont(new Font("Century Gothic", Font.BOLD, 16));
-		comboBox.setModel(new DefaultComboBoxModel(new String []{"Añadir un Curso", "Modificar un curso", "Curso más solicitado","Email enviar"}) );
+		comboBox.setModel(new DefaultComboBoxModel(new String []{"Añadir un Curso", "Modificar un curso", "Curso más solicitado","Email enviar", "Curso: cantidad de solicitudes por usuario"}) );
 		comboBox.setBounds(99, 62, 223, 26);
 		contentPane.add(comboBox);
 		
