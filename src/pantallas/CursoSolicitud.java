@@ -25,6 +25,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import logneg.ClaseGym;
@@ -95,6 +96,17 @@ public class CursoSolicitud extends JFrame {
 					boolean foundy=comprobarUsuario(dni);
 					clases=usuarioObjetivo.getNombreClase();
 					cantidadClases=usuarioObjetivo.getCantidadDeVecesSolicitado();
+					
+					String textoObjetivo=null;
+					for (int i=0;i<clases.size();i++){
+						for (int j=0;j<cantidadClases.size();j++){
+							textoObjetivo +="-> "+ clases.get(i) + " " + cantidadClases.get(j) + " veces\n";
+						}
+					}
+					JOptionPane.showInputDialog(textoObjetivo);
+				}catch (AdminNotFound e) {
+
+					JOptionPane.showMessageDialog(CursoSolicitud.this, e.getMessage());
 				}
 			
 			}});
@@ -104,34 +116,13 @@ public class CursoSolicitud extends JFrame {
 		btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				CursoPopular.this.dispose();
+				CursoSolicitud.this.dispose();
 				papi.setVisible(true);
 			}
 		});
 		btn.setBounds(50, 350, 110, 30);
 		contentPane.add(btn);
 		
-		JButton btnSalir = new JButton("Salir");
-		btnSalir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				CursoSolicitud.this.dispose();
-			}
-		});
-		btnSalir.setBounds(49, 354, 115, 29);
-		contentPane.add(btnSalir);
-		
-		JTextPane textPane = new JTextPane();
-		textPane.setFont(new Font("Century Gothic", Font.BOLD, 16));
-		textPane.setBounds(90, 125, 420, 85);
-		contentPane.add(textPane);
-		
-
-		LinkedList<String> curso = cursoPopCalc();
-		String c = null;
-		for (int i = 0; i < curso.size(); i++) {
-			c = curso.get(i) + "\n";
-		}
-		textPane.setText(c);
 	}
 	
 	public boolean comprobarUsuario(String dni) throws AdminNotFound{
@@ -149,13 +140,19 @@ public class CursoSolicitud extends JFrame {
 		}
 		
 	}
+	
+	public static ArrayList<Integer> mergeSort(ArrayList<Integer> arrayInput,ArrayList<String> clases){
+		if (arrayInput.size()==1){
+			return arrayInput;
+		}else{
+			int middle=arrayInput.size()/2;
+			ArrayList<Integer> left = new ArrayList<Integer>(middle);
+			ArrayList<Integer> right = new ArrayList<Integer>(arrayInput.size() - middle);
+			ArrayList<String> leftP = new ArrayList<String>(middle);
+			ArrayList<String> rightP = new ArrayList<String>(arrayInput.size() - middle);
 
-	public  LinkedList<String> cursoPopCalc(){
-		LinkedList<String> cursos = new LinkedList<String>();
-		
-		cursos.add("Pilates");
-		cursos.add("Zumba");
-		return;
+			
+		}
 	}
 	
 	
