@@ -1,6 +1,7 @@
 package pantallas;
 
 import java.awt.Font;
+import java.awt.Menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -96,6 +97,11 @@ public class PantallaAdmin extends JFrame{
 					 CursoPopular cp= new CursoPopular(usuarioBD, PantallaAdmin.this);
 					 cp.setVisible(true);
 					 PantallaAdmin.this.dispose();
+					 
+				}else if (aukera.equals("Curso: cantidad de solicitudes por usuario")){
+					CursoSolicitud s= new CursoSolicitud(usuarioBD, PantallaAdmin.this);
+					s.setVisible(true);
+					PantallaAdmin.this.dispose();
 				}
 				
 			}
