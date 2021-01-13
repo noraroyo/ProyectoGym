@@ -80,7 +80,7 @@ public class CursoPopular extends JFrame {
 		textPane.setBounds(90, 125, 420, 85);
 		contentPane.add(textPane);
 
-		LinkedList<String> curso = cursoPopCalc();
+		LinkedList<String> curso = cursoPopCalcular();
 		String c = null;
 		for (int i = 0; i < curso.size(); i++) {
 			c = curso.get(i) + "\n";
@@ -88,7 +88,7 @@ public class CursoPopular extends JFrame {
 		textPane.setText(c);
 	}
 
-	public  LinkedList<String> cursoPopCalc(){
+	public  LinkedList<String> cursoPopCalcular(){
 		LinkedList<String> cursos = new LinkedList<String>();
 		
 		cursos.add("Pilates");
@@ -106,14 +106,53 @@ public class CursoPopular extends JFrame {
 					contadorPilates = contadorPilates + u.getCantidadDeVecesSolicitado().get(i);
 					
 				}
+				else if (u.getNombreClase().equals("Pilates")){
+					contadorPilates = contadorPilates + u.getCantidadDeVecesSolicitado().get(i);
+				}
+				else if (u.getNombreClase().equals("Zumba")){
+					contadorZumba = contadorZumba + u.getCantidadDeVecesSolicitado().get(i);
+				}
+				else if (u.getNombreClase().equals("Spinning")){
+					contadorSpinning = contadorSpinning + u.getCantidadDeVecesSolicitado().get(i);
+			}
+			}
+	}
+		zenbat.add(contadorPilates);
+		zenbat.add(contadorZumba);
+		zenbat.add(contadorSpinning);
+		
+		//Streams
+		
+		int cursoMasSolicitado = zenbat.stream().mapToInt(e -> e).max().getAsInt();
+		int pos=0;
+		
+		LinkedList <Integer> batBGehio = new LinkedList<Integer>();
+		LinkedList<String> batBGehio1 = new LinkedList<String>();
+		
+		String curso = null;
+		for (int i = 0; i < zenbat.size(); i++){
+			if (zenbat.get(i)== cursoMasSolicitado){
+				pos= i +1;
+				batBGehio.add(pos);
+				
 			}
 		}
 		
-		
-		
-		
-		
+		for (int i = 0; i < batBGehio.size(); i++){
+			if (batBGehio.get(i)== 1){
+				curso= "Pilates";
+				batBGehio1.add(curso);
+				
+			}else if (batBGehio.get(i)==2){
+				curso = "Zumba";
+				batBGehio1.add(curso);
+				
+			}else if (batBGehio.get(i)==3){
+				curso = "Spinning";
+				batBGehio1.add(curso);
+			}
+		}
+		return batBGehio1;
 	}
-	
 	
 }
