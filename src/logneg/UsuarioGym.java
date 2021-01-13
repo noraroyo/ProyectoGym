@@ -13,6 +13,7 @@ public class UsuarioGym {
 	private ArrayList<String> nombreClase;
 	private String nombreUsuario;
 	private String dniUsuario;
+	private ArrayList<Integer> cantidadDeVezSolicitado;
 	
 	
 	public UsuarioGym(){
@@ -25,14 +26,32 @@ public class UsuarioGym {
 	 * @param nombreUsuario
 	 * @param dniUsuario
 	 * @param nombreClase
+	 * @param cantidadDeVezSolicitado
 	 */
-	public UsuarioGym(String nombre, String dniUsuario, ArrayList<String> nombreClase) {
+	public UsuarioGym(String nombre, String dniUsuario, ArrayList<String> nombreClase, ArrayList<Integer>cantidadDeVezSolicitado) {
 		super();
 		this.nombreUsuario = nombre;
 		this.dniUsuario = dniUsuario;
 		this.nombreClase = nombreClase;
+		this.cantidadDeVezSolicitado= cantidadDeVezSolicitado;
 	}
-	
+	/**
+	 * Obtiene el numero de veces que un usuario pide un curso
+	 * 
+	 * @return numero de veces pedidas
+	 */
+	public ArrayList<Integer> getCantidadDeVecesSolicitado() {
+		return cantidadDeVezSolicitado;
+	}
+
+	/**
+	 * Establece el numero de veces que se coge un curso
+	 * 
+	 * @param cantidadDeVezSolicitado
+	 */
+	public void setCantidadDeVecesSolicitado(ArrayList<Integer> cantidadDeVezSolicitado) {
+		this.cantidadDeVezSolicitado = cantidadDeVezSolicitado;
+	}
 	
 	/**
 	 * Este método obtiene el nombre del usuario correspondiente
