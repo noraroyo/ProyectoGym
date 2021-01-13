@@ -50,11 +50,22 @@ public class GestorBD {
 			ArrayList<String> clases=new ArrayList<String>();
 			clases.add("zumba");
 			clases.add("Spinning");
+			
 			ArrayList<String> clases2=new ArrayList<String>();
 			clases2.add("pilates");
 			clases2.add("spinning");
-			UsuarioGymBD.insertarUsuarioGym(this.con, "72601035H", "Pitxford Ordorika", clases);
-			UsuarioGymBD.insertarUsuarioGym(this.con, "72601034H", "Norix Royus", clases2);
+			
+			ArrayList<Integer> cantidadDeVezSolicitado = new ArrayList<Integer>();
+			cantidadDeVezSolicitado.add(1);
+			cantidadDeVezSolicitado.add(3);
+			
+			ArrayList<Integer> cantidadDeVezSolicitado2 = new ArrayList<Integer>();
+			cantidadDeVezSolicitado2.add(4);
+			cantidadDeVezSolicitado2.add(2);
+			cantidadDeVezSolicitado2.add(6);
+			
+			UsuarioGymBD.insertarUsuarioGym(this.con, "72601035H", "Pitxford Ordorika", clases, cantidadDeVezSolicitado);
+			UsuarioGymBD.insertarUsuarioGym(this.con, "72601034H", "Norix Royus", clases2, cantidadDeVezSolicitado2);
 			
 			ArrayList<String> clases3=new ArrayList<String>();
 			clases3.add("zumba");
