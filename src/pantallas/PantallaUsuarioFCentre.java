@@ -20,8 +20,6 @@ import javax.swing.border.MatteBorder;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 import javax.swing.JComboBox;
-import java.awt.Frame;
-import java.awt.Dimension;
 
 /**
  * 
@@ -42,15 +40,8 @@ public class PantallaUsuarioFCentre extends JFrame {
 	 * @param padre
 	 */
 	public PantallaUsuarioFCentre(ArrayList<UsuarioGym> usuarios, PantallaPrincipal padre){
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setMinimumSize(new Dimension(20, 20));
-		getContentPane().setSize(new Dimension(20, 20));
-		getContentPane().setPreferredSize(new Dimension(20, 20));
 		father=padre;
 		this.usuariosBD=usuarios;
-		
-		
-		
 		getContentPane().setBackground(new Color(240, 248, 255));
 		
 		getContentPane().setLayout(null);
