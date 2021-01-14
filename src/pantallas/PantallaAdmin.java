@@ -102,6 +102,10 @@ public class PantallaAdmin extends JFrame{
 					CursoSolicitud s= new CursoSolicitud(usuarioBD, PantallaAdmin.this);
 					s.setVisible(true);
 					PantallaAdmin.this.dispose();
+				}else if (aukera.equals("Email enviar")){
+					Correo ventanaCorreo=new Correo(PantallaAdmin.this,usuario,contra);
+					ventanaCorreo.setVisible(true);
+					PantallaAdmin.this.dispose();
 				}
 				
 			}
