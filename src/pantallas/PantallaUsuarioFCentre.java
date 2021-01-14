@@ -18,6 +18,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.border.MatteBorder;
 import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.border.LineBorder;
 import javax.swing.JComboBox;
 
@@ -40,11 +42,17 @@ public class PantallaUsuarioFCentre extends JFrame {
 	 * @param padre
 	 */
 	public PantallaUsuarioFCentre(ArrayList<UsuarioGym> usuarios, PantallaPrincipal padre){
+		
 		father=padre;
 		this.usuariosBD=usuarios;
-		getContentPane().setBackground(new Color(240, 248, 255));
 		
+		getContentPane().setBackground(new Color(240, 248, 255));
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setMinimumSize(new Dimension(20, 20));
+		getContentPane().setSize(new Dimension(20, 20));
+		getContentPane().setPreferredSize(new Dimension(20, 20));
 		getContentPane().setLayout(null);
+		
 		
 		JLabel lblCursosFitness = new JLabel("CLASES - FITNESS CENTRE");
 		lblCursosFitness.setFont(new Font("Century Gothic", Font.BOLD, 18));
