@@ -51,7 +51,7 @@ public class CursoSolicitud extends JFrame {
 	}
 
 	/**
-	 * Create the frame: Su funcion es aportar las clases a las que se ha apuntado el usuarioObjetivo y su numero.
+	 * Create the frame: Su funcion es aportar las clases a las que se ha apuntado el usuarioObjetivo y su numero
 	 */
 	public CursoSolicitud(ArrayList<UsuarioGym> usuarioGymBD, PantallaAdmin papi) {
 		this.padre=papi;
@@ -97,6 +97,8 @@ public class CursoSolicitud extends JFrame {
 					clases=usuarioObjetivo.getNombreClase();
 					cantidadClases=usuarioObjetivo.getCantidadDeVecesSolicitado();
 					
+					cantidadClases=mergeSort(cantidadClases, clases);
+					
 					String textoObjetivo=null;
 					for (int i=0;i<clases.size();i++){
 						for (int j=0;j<cantidadClases.size();j++){
@@ -124,7 +126,12 @@ public class CursoSolicitud extends JFrame {
 		contentPane.add(btn);
 		
 	}
-	
+	/**
+	 * ¿Esta el dni o no? Eso nos resuelve
+	 * @param dni  el dni del usuarioGym
+	 * @return si no existe el dni devolvera false y si existe true
+	 * @throws AdminNotFound la clase que salta la excepcion si el usuario no existe
+	 */
 	public boolean comprobarUsuario(String dni) throws AdminNotFound{
 		boolean found=false;
 		for(UsuarioGym u:listaUsuarios){
@@ -141,6 +148,12 @@ public class CursoSolicitud extends JFrame {
 		
 	}
 	
+	/**
+	 * Ordena de menor a mayor las clases a las que se han apuntado los usuarios del Gym y la cantidad
+	 * @param arrayInput arrayList de la cantidad de veces de cada clase a la que se han apunto
+	 * @param clases arrayList de las clases a las que se han apuntado los usuarios
+	 * @return devuelve ordenada la cantidad, es un arrayList
+	 */
 	public static ArrayList<Integer> mergeSort(ArrayList<Integer> arrayInput,ArrayList<String> clases){
 		if (arrayInput.size()==1){
 			return arrayInput;
@@ -148,11 +161,66 @@ public class CursoSolicitud extends JFrame {
 			int middle=arrayInput.size()/2;
 			ArrayList<Integer> left = new ArrayList<Integer>(middle);
 			ArrayList<Integer> right = new ArrayList<Integer>(arrayInput.size() - middle);
-			ArrayList<String> leftP = new ArrayList<String>(middle);
-			ArrayList<String> rightP = new ArrayList<String>(arrayInput.size() - middle);
-
+			ArrayList<String> leftC = new ArrayList<String>(middle);
+			ArrayList<String> rightC = new ArrayList<String>(arrayInput.size() - middle);
+			
+			for (int i=0;i<middle;i++){
+				left.add(arrayInput.get(i));
+				leftC.add(clases.get(i));
+			}
+			for (int i=middle;i< arrayInput.size();i++){
+				right.add(arrayInput.get(i));
+				rightC.add(clases.get(i));
+			}
+			left=mergeSort(left,leftC);
+			right=mergeSort(right,rightC);
+			return merge(left,right,leftC,rightC);
+		}
+	}
+	/**
+	 * Ordena de menor a mayor las clases a las que se han apuntado los usuarios del Gym y la cantidad
+	 * @param left parte izda del arrayList de la cantidad de clases de los usuarios
+	 * @param right parte dcha del arrayList de la cantidad de clases de los usuarios
+	 * @param leftC parte izda del arrayList de las clases a las que se han apuntado los usuarios 
+	 * @param rightC parte dcha del arrayList de las clases a las que se han apuntado los usuarios
+	 * @return devuelve ordenada la cantidad, es un arrayList
+	 */
+	public static ArrayList<Integer> merge(ArrayList<Integer> left, ArrayList<Integer> right, ArrayList<String> leftC,
+			ArrayList<String> rightC) {
+		ArrayList<Integer> ayu=new ArrayList<>();
+		ArrayList<String> ayuClases=new ArrayList<>();
+		
+		while (!left.isEmpty() && !right.isEmpty()){
+			if (left.get(0)>right.get(0)){
+				ayu.add(right.get(0));
+				right.remove(0);
+				ayuClases.add(rightC.get(0));
+				rightC.remove(0);
+			}else{
+				ayu.add(left.get(0));
+				left.remove(0);
+				ayuClases.add(leftC.get(0));
+				leftC.remove(0);
+			}
+		}
+		
+		while (!left.isEmpty()){
+			ayu.add(left.get(0));
+			left.remove(0);
+			ayuClases.add(leftC.get(0));
+			leftC.remove(0);
 			
 		}
+		while (!right.isEmpty()){
+			ayu.add(right.get(0));
+			right.remove(0);
+			ayuClases.add(rightC.get(0));
+			rightC.remove(0);
+			
+		}
+		
+		clases=ayuClases;
+		return ayu;
 	}
 	
 	
