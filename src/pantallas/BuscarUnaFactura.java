@@ -49,7 +49,7 @@ public class BuscarUnaFactura extends JFrame {
 	public BuscarUnaFactura(ArrayList<Factura>facturasBD, PantallaAdmin papi, String dato) {
 		this.facturas=facturasBD;
 		this.papi=papi;
-		lblBuscarUnaFactura=new JLabel(dato);
+		lblBuscarUnaFactura=new JLabel("BUSCAR UNA FACTURA POR FECHA");
 		mostrarVentana();
 	}
 	public void mostrarVentana(){
@@ -57,13 +57,15 @@ public class BuscarUnaFactura extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 645, 430);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(47, 79, 79));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		lblBuscarUnaFactura.setForeground(Color.WHITE);
-		lblBuscarUnaFactura.setFont(new Font("Tahoma", Font.BOLD, 21));
-		lblBuscarUnaFactura.setBounds(15, 16, 242, 57);
+		lblBuscarUnaFactura.setFont(new Font("Century Gothic", Font.BOLD, 21));
+		lblBuscarUnaFactura.setBounds(106, 31, 456, 57);
+		
 		contentPane.add(lblBuscarUnaFactura);
 
 		txtFechaFactura = new JTextField();
@@ -72,6 +74,7 @@ public class BuscarUnaFactura extends JFrame {
 		txtFechaFactura.setColumns(10);
 		
 		JButton btnOk = new JButton("OK");
+		btnOk.setFont(new Font("Century Gothic", Font.BOLD, 16));
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -95,16 +98,17 @@ public class BuscarUnaFactura extends JFrame {
 			
 		});
 		
-		btnOk.setBounds(429, 160, 115, 29);
-		contentPane.add(btnOk, BorderLayout.EAST);
+		btnOk.setBounds(357, 256, 103, 30);
+		contentPane.add(btnOk);
 
 		JLabel lblFecha = new JLabel("FECHA: ");
 		lblFecha.setForeground(Color.WHITE);
-		lblFecha.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblFecha.setBounds(105, 158, 78, 31);
+		lblFecha.setFont(new Font("Century Gothic", Font.BOLD, 16));
+		lblFecha.setBounds(50, 138, 103, 70);
 		contentPane.add(lblFecha);
 
 		JButton btnSalir = new JButton("SALIR");
+		btnSalir.setFont(new Font("Century Gothic", Font.BOLD, 16));
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -114,8 +118,8 @@ public class BuscarUnaFactura extends JFrame {
 
 			}
 		});
-		btnSalir.setBounds(470, 329, 115, 29);
-		contentPane.add(btnSalir, BorderLayout.SOUTH);
+		btnSalir.setBounds(146, 256, 126, 29);
+		contentPane.add(btnSalir);
 
 	}
 		
