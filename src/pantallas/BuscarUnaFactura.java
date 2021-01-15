@@ -2,35 +2,30 @@ package pantallas;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import logneg.Factura;
+
 public class BuscarUnaFactura extends JFrame {
 
 	private JPanel contentPane;
+	private ArrayList <Factura> facturas= new ArrayList <Factura>();
+	private PantallaAdmin papi;
+	private int auk1;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					BuscarUnaFactura frame = new BuscarUnaFactura();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
+	
 
 	/**
 	 * Create the frame.
 	 */
-	public BuscarUnaFactura() {
+	public BuscarUnaFactura(ArrayList<Factura>facturasBD, PantallaAdmin papi, String dato, int auk1) {
+		
+	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -38,5 +33,5 @@ public class BuscarUnaFactura extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 	}
-
 }
+
