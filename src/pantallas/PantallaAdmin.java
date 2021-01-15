@@ -19,9 +19,10 @@ import logneg.UsuarioGym;
 
 import logneg.Administrador;
 import logneg.Factura;
+import java.awt.Color;
 
 /**
- * 
+ * Esta es la clase pantalla administrador, donde el administrador podrá realizar diferentes acciones.
  * @author Nora
  * @author Victor
  *
@@ -54,8 +55,9 @@ public class PantallaAdmin extends JFrame{
 		this.facturaBD=facturas;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 813, 552);
+		setBounds(100, 100, 495, 358);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 240, 245));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
