@@ -48,9 +48,14 @@ public class PantallaFacturaClases extends JFrame {
 	private static int cuentaSpinning=0;
 	private static int cuentaPilates=0;
 	private static int cuentaZumba=0;
+	
 	/**
 	 * Create the frame PantallaFacturaClases que te muestra el precio total y clases a las que se ha apuntado el usuario
+	 * @param precioTotalClases
+	 * @param compraClases
+	 * @param usuarios
 	 */
+	
 	public PantallaFacturaClases(int precioTotalClases, ArrayList<ClaseGym>compraClases , ArrayList <UsuarioGym>usuarios) {
 		
 		this.usuariosBD= usuarios;
@@ -183,14 +188,14 @@ public class PantallaFacturaClases extends JFrame {
 						}
 
 					}
-					// EL NUEVO CLIENTE EN LA BD
+					
 
 					GestorBD mybd = new GestorBD("FitnessCentre.db");
 					mybd.conectarBD();
 					bbdd.UsuarioGymBD.insertarUsuarioGym(mybd.getCon(), dni, usuario , nombreClases, cantidadClases); 
 					mybd.desconectarBD();
 
-					// INTRODUCIR EN LA BD LA NUEVA FACTURA
+				
 
 					GestorBD mybd2 = new GestorBD("FitnessCentre.db");
 					mybd2.conectarBD();
