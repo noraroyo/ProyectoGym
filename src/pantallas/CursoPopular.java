@@ -25,6 +25,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import logneg.ClaseGym;
 import logneg.UsuarioGym;
+import java.awt.Color;
+import java.awt.SystemColor;
 
 /**
  * Esta es la clase CursoPopular que sirve para obtener el curso más solicitado por los usuarios.
@@ -82,6 +84,7 @@ public class CursoPopular extends JFrame {
 		contentPane.add(btnSalir);
 		
 		JTextPane textPane = new JTextPane();
+		textPane.setBackground(SystemColor.menu);
 		textPane.setFont(new Font("Century Gothic", Font.BOLD, 16));
 		textPane.setBounds(90, 125, 420, 85);
 		contentPane.add(textPane);
