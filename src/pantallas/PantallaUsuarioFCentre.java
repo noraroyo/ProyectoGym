@@ -46,7 +46,7 @@ public class PantallaUsuarioFCentre extends JFrame {
 		father=padre;
 		this.usuariosBD=usuarios;
 		
-		getContentPane().setBackground(new Color(240, 248, 255));
+		getContentPane().setBackground(new Color(255, 204, 204));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setMinimumSize(new Dimension(20, 20));
 		getContentPane().setSize(new Dimension(20, 20));
