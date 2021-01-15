@@ -26,6 +26,12 @@ import javax.swing.border.EmptyBorder;
 import logneg.ClaseGym;
 import logneg.UsuarioGym;
 
+/**
+ * Esta es la clase CursoPopular que sirve para obtener el curso más solicitado por los usuarios.
+ * @author Nora 
+ * @author Victor
+ *
+ */
 
 public class CursoPopular extends JFrame {
 
