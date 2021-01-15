@@ -30,6 +30,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import logneg.ClaseGym;
 import logneg.UsuarioGym;
+import javax.swing.UIManager;
 
 /**
  * Esta es la clase curso solicitud, que sirve para sacar la cantidad de solicitudes por usuario de los cursos.
@@ -65,29 +66,27 @@ public class CursoSolicitud extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(UIManager.getColor("info"));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
-		JLabel lblPopular = new JLabel ("Clase más Solicitado");
-		lblPopular.setFont(new Font("Century Gothic", Font.BOLD, 16));
-		lblPopular.setBounds(114, 33, 350, 50);
-		contentPane.add(lblPopular);
+		
 		
 		JLabel lblDniUsuario = new JLabel("DNI:");
 		lblDniUsuario.setForeground(Color.BLACK);
 		lblDniUsuario.setFont(new Font("Century Gothic", Font.BOLD, 13));
-		lblDniUsuario.setBounds(104, 121, 72, 20);
+		lblDniUsuario.setBounds(83, 100, 72, 20);
 		contentPane.add(lblDniUsuario);
 		
 		textField = new JTextField();
-		textField.setBounds(176, 121, 192, 26);
+		textField.setBounds(145, 97, 192, 26);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblBusquedaUsuario = new JLabel("BUSQUEDA USUARIO");
+		JLabel lblBusquedaUsuario = new JLabel("Búsqueda usuario:");
 		lblBusquedaUsuario.setFont(new Font("Century Gothic", Font.BOLD, 13));
-		lblBusquedaUsuario.setBounds(190, 27, 246, 26);
+		lblBusquedaUsuario.setBounds(117, 47, 246, 26);
 		contentPane.add(lblBusquedaUsuario);
 		
 		JButton btnOk = new JButton("OK");
@@ -128,7 +127,7 @@ public class CursoSolicitud extends JFrame {
 				papi.setVisible(true);
 			}
 		});
-		btn.setBounds(50, 350, 110, 30);
+		btn.setBounds(145, 159, 99, 35);
 		contentPane.add(btn);
 		
 	}
