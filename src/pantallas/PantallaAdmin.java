@@ -88,8 +88,8 @@ public class PantallaAdmin extends JFrame{
 				if (aukera.equals("Buscar una factura")) {
 					
 					String datua= "Buscar una factura por fecha"  ;
-					int zenbaki= 1;
-					BuscarUnaFactura bf= new BuscarUnaFactura(facturaBD, PantallaAdmin.this, datua, zenbaki);
+					
+					BuscarUnaFactura bf= new BuscarUnaFactura(facturaBD, PantallaAdmin.this, datua);
 					bf.setVisible(true);
 					
 
