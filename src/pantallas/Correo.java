@@ -20,7 +20,12 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-
+/**
+ * Esta es la clase Correo que sirve para enviar correos electrónicos. Hace uso de una librería externa javax.mail.
+ * @author Nora 
+ * @author Victor
+ *
+ */
 public class Correo extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtLoEnvia;
