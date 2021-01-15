@@ -2,7 +2,8 @@ package logneg;
 /**
  * Los monitores, recepcionistas y administradores heredan de esta clase TrabajadorGym
  * 
- * @author Nora y Víctor 
+ * @author Nora
+ * @author Víctor 
  *
  */
 public abstract class TrabajadorGym {
