@@ -84,6 +84,7 @@ public class LoginAdmin extends JFrame {
 		contentPane.add(lblContrasea);
 		
 		JButton btnOK = new JButton("OK");
+		btnOK.setFont(new Font("Century Gothic", Font.BOLD, 16));
 		btnOK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String user=textUser.getText();
@@ -105,6 +106,7 @@ public class LoginAdmin extends JFrame {
 		contentPane.add(btnOK);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setFont(new Font("Century Gothic", Font.BOLD, 16));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LoginAdmin.this.dispose();
