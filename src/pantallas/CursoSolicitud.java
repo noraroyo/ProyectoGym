@@ -31,7 +31,13 @@ import javax.swing.border.EmptyBorder;
 import logneg.ClaseGym;
 import logneg.UsuarioGym;
 
-
+/**
+ * Esta es la clase curso solicitud, que sirve para sacar la cantidad de solicitudes por usuario de los cursos.
+ * 
+ * @author Nora 
+ * @author Victor
+ *
+ */
 public class CursoSolicitud extends JFrame {
 
 	private JPanel contentPane;
