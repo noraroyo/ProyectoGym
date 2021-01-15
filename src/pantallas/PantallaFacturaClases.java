@@ -23,6 +23,7 @@ import javax.swing.border.EmptyBorder;
 import bbdd.GestorBD;
 import logneg.ClaseGym;
 import logneg.UsuarioGym;
+import java.awt.Color;
 
 
 /**
@@ -64,17 +65,20 @@ public class PantallaFacturaClases extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 599,699);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(204, 255, 153));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblFactura = new JLabel("FACTURA");
-		lblFactura.setFont(new Font("Tahoma", Font.BOLD, 20));
+		
+		lblFactura.setFont(new Font("Century Gothic", Font.BOLD, 18));
 		lblFactura.setBounds(208, 33, 117, 38);
 		contentPane.add(lblFactura);
 
 		JLabel lblNumeroFactura = new JLabel("Numero Factura:");
-		lblNumeroFactura.setBounds(33, 211, 137, 20);
+		lblNumeroFactura.setFont(new Font("Century Gothic", Font.BOLD, 18));
+		lblNumeroFactura.setBounds(33, 211, 160, 20);
 		contentPane.add(lblNumeroFactura);
 		
 		txtNumFactura = new JTextField();
@@ -87,6 +91,7 @@ public class PantallaFacturaClases extends JFrame {
 		txtNumFactura.setText("" + numero);
 		
 		JLabel lblFecha = new JLabel("Fecha:");
+		lblFecha.setFont(new Font("Century Gothic", Font.BOLD, 18));
 		lblFecha.setBounds(33, 273, 69, 20);
 		contentPane.add(lblFecha);
 
@@ -101,11 +106,13 @@ public class PantallaFacturaClases extends JFrame {
 		txtFechaFactura.setText(fechaFac);
 		
 		JLabel lblPedido = new JLabel("Pedido:");
+		lblPedido.setFont(new Font("Century Gothic", Font.BOLD, 18));
 		lblPedido.setBounds(33, 346, 69, 20);
 		contentPane.add(lblPedido);
 		
 		JLabel lblPrecioTotal = new JLabel("Coste total:");
-		lblPrecioTotal.setBounds(79, 523, 93, 20);
+		lblPrecioTotal.setFont(new Font("Century Gothic", Font.BOLD, 18));
+		lblPrecioTotal.setBounds(45, 523, 127, 20);
 		contentPane.add(lblPrecioTotal);
 		
 		txtPrecio = new JTextField();
@@ -117,6 +124,7 @@ public class PantallaFacturaClases extends JFrame {
 		txtPrecio.setText(total);
 		
 		JLabel lblDni = new JLabel("DNI:");
+		lblDni.setFont(new Font("Century Gothic", Font.BOLD, 18));
 		lblDni.setBounds(33, 114, 69, 20);
 		contentPane.add(lblDni);
 
@@ -126,6 +134,7 @@ public class PantallaFacturaClases extends JFrame {
 		txtDni.setColumns(10);
 		
 		JLabel lblUsu = new JLabel("USUARIO:");
+		lblUsu.setFont(new Font("Century Gothic", Font.BOLD, 18));
 		lblUsu.setBounds(33, 168, 93, 20);
 		contentPane.add(lblUsu);
 
@@ -149,16 +158,18 @@ public class PantallaFacturaClases extends JFrame {
 		textPane.setText(pedido);
 		
 		JButton btnCancelar = new JButton("CANCELAR");
+		btnCancelar.setFont(new Font("Century Gothic", Font.BOLD, 18));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				PantallaFacturaClases.this.dispose();
 			}
 		});
-		btnCancelar.setBounds(103, 576, 115, 29);
+		btnCancelar.setBounds(103, 576, 133, 29);
 		contentPane.add(btnCancelar);
 		
 		JButton btnConfirmarPedido = new JButton("CONFIRMAR PEDIDO");
+		btnConfirmarPedido.setFont(new Font("Century Gothic", Font.BOLD, 18));
 		btnConfirmarPedido.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -209,7 +220,7 @@ public class PantallaFacturaClases extends JFrame {
 
 			}
 		});
-		btnConfirmarPedido.setBounds(276, 576, 196, 29);
+		btnConfirmarPedido.setBounds(276, 576, 216, 29);
 		contentPane.add(btnConfirmarPedido);
 	}
 	/**
