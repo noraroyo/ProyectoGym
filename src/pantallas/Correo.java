@@ -45,23 +45,24 @@ public class Correo extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 574, 483);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 218, 185));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblEnviarCorreo = new JLabel("ENVIAR CORREO");
-		lblEnviarCorreo.setFont(new Font("Tahoma", Font.BOLD, 40));
+		JLabel lblEnviarCorreo = new JLabel("Enviar Email");
+		lblEnviarCorreo.setFont(new Font("Century Gothic", Font.BOLD, 33));
 		lblEnviarCorreo.setForeground(new Color(0, 0, 0));
-		lblEnviarCorreo.setBounds(105, 16, 348, 49);
+		lblEnviarCorreo.setBounds(144, 29, 348, 49);
 		contentPane.add(lblEnviarCorreo);
 
 		txtLoEnvia = new JTextField();
-		txtLoEnvia.setBounds(133, 112, 289, 33);
+		txtLoEnvia.setBounds(133, 113, 289, 33);
 		contentPane.add(txtLoEnvia);
 		txtLoEnvia.setColumns(10);
 
 		txtDestino = new JTextField();
-		txtDestino.setBounds(133, 166, 289, 33);
+		txtDestino.setBounds(133, 162, 289, 33);
 		contentPane.add(txtDestino);
 		txtDestino.setColumns(10);
 
@@ -71,11 +72,12 @@ public class Correo extends JFrame {
 		
 		//Convertimos el scrollpane en txt para facilitar
 		JScrollPane scroll = new JScrollPane();
-		scroll.setViewportView(txtCuerpoMensaje);
+		scroll.setColumnHeaderView(txtCuerpoMensaje);
 		scroll.setBounds(132, 215, 290, 113);
 		contentPane.add(scroll);
 		
-		JButton btnEnviar = new JButton("ENVIAR");
+		JButton btnEnviar = new JButton("Send");
+		btnEnviar.setFont(new Font("Century Gothic", Font.BOLD, 17));
 		btnEnviar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -110,7 +112,8 @@ public class Correo extends JFrame {
 		btnEnviar.setBounds(407, 366, 115, 29);
 		contentPane.add(btnEnviar);
 		
-		JButton btnCancelar = new JButton("CANCELAR");
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setFont(new Font("Century Gothic", Font.BOLD, 17));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -121,19 +124,19 @@ public class Correo extends JFrame {
 		btnCancelar.setBounds(42, 366, 115, 29);
 		contentPane.add(btnCancelar);
 		
-		lblRedactor = new JLabel("Redactor");
-		lblRedactor.setFont(new Font("Tahoma", Font.BOLD, 17));
-		lblRedactor.setBounds(27, 118, 69, 20);
+		lblRedactor = new JLabel("From: ");
+		lblRedactor.setFont(new Font("Century Gothic", Font.BOLD, 17));
+		lblRedactor.setBounds(27, 118, 91, 20);
 		contentPane.add(lblRedactor);
 		
-		lblReceptor = new JLabel("Receptor");
-		lblReceptor.setFont(new Font("Tahoma", Font.BOLD, 17));
-		lblReceptor.setBounds(27, 171, 91, 20);
+		lblReceptor = new JLabel("To: ");
+		lblReceptor.setFont(new Font("Century Gothic", Font.BOLD, 17));
+		lblReceptor.setBounds(27, 171, 105, 20);
 		contentPane.add(lblReceptor);
 		
-		lblCuerpo = new JLabel("Cuerpo");
-		lblCuerpo.setFont(new Font("Tahoma", Font.BOLD, 17));
-		lblCuerpo.setBounds(27, 215, 69, 20);
+		lblCuerpo = new JLabel("Body: ");
+		lblCuerpo.setFont(new Font("Century Gothic", Font.BOLD, 17));
+		lblCuerpo.setBounds(27, 215, 90, 70);
 		contentPane.add(lblCuerpo);
 	}
 	public static boolean enviarGmail(String user, String contra, String destinatario, String cuerpo) {
