@@ -82,7 +82,7 @@ public class PantallaFacturaClases extends JFrame {
 		txtNumFactura.setText("" + numero);
 		
 		JLabel lblFecha = new JLabel("Fecha:");
-		lblFecha.setBounds(79, 273, 69, 20);
+		lblFecha.setBounds(33, 273, 69, 20);
 		contentPane.add(lblFecha);
 
 		txtFechaFactura = new JTextField();
@@ -96,7 +96,7 @@ public class PantallaFacturaClases extends JFrame {
 		txtFechaFactura.setText(fechaFac);
 		
 		JLabel lblPedido = new JLabel("Pedido:");
-		lblPedido.setBounds(79, 346, 69, 20);
+		lblPedido.setBounds(33, 346, 69, 20);
 		contentPane.add(lblPedido);
 		
 		JLabel lblPrecioTotal = new JLabel("Coste total:");
@@ -112,7 +112,7 @@ public class PantallaFacturaClases extends JFrame {
 		txtPrecio.setText(total);
 		
 		JLabel lblDni = new JLabel("DNI:");
-		lblDni.setBounds(77, 114, 69, 20);
+		lblDni.setBounds(33, 114, 69, 20);
 		contentPane.add(lblDni);
 
 		txtDni = new JTextField();
@@ -121,7 +121,7 @@ public class PantallaFacturaClases extends JFrame {
 		txtDni.setColumns(10);
 		
 		JLabel lblUsu = new JLabel("USUARIO:");
-		lblUsu.setBounds(77, 168, 69, 20);
+		lblUsu.setBounds(33, 168, 93, 20);
 		contentPane.add(lblUsu);
 
 		nombreUsuario = new JTextField();
