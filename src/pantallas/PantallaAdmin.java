@@ -84,13 +84,15 @@ public class PantallaAdmin extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 			
 				String aukera = (String) comboBox.getSelectedItem();
-				if (aukera.equals("Añadir un Curso")) {
-					int auk1=1;
-					NuevoCurso nc= new NuevoCurso(PantallaAdmin.this, auk1);
-					nc.setVisible(true);
+				
+				if (aukera.equals("Buscar una factura")) {
 					
+					String datua= "Buscar una factura por fecha"  ;
+					int zenbaki= 1;
+					BuscarUnaFactura bf= new BuscarUnaFactura(facturaBD, PantallaAdmin.this, datua, zenbaki);
+					bf.setVisible(true);
 					
-				}else if (aukera.equals("Modificar un curso")) {
+
 					
 					
 				}else if (aukera.equals("Curso más solicitado")){
@@ -102,6 +104,8 @@ public class PantallaAdmin extends JFrame{
 					CursoSolicitud s= new CursoSolicitud(usuarioBD, PantallaAdmin.this);
 					s.setVisible(true);
 					PantallaAdmin.this.dispose();
+					
+					
 				}else if (aukera.equals("Email enviar")){
 					Correo ventanaCorreo=new Correo(PantallaAdmin.this,usuario,contra);
 					ventanaCorreo.setVisible(true);
