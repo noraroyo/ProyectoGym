@@ -15,7 +15,7 @@ public class BuscarUnaFactura extends JFrame {
 	private JPanel contentPane;
 	private ArrayList <Factura> facturas= new ArrayList <Factura>();
 	private PantallaAdmin papi;
-	private int auk1;
+	
 
 
 	
@@ -23,7 +23,7 @@ public class BuscarUnaFactura extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public BuscarUnaFactura(ArrayList<Factura>facturasBD, PantallaAdmin papi, String dato, int auk1) {
+	public BuscarUnaFactura(ArrayList<Factura>facturasBD, PantallaAdmin papi, String dato) {
 		
 	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
